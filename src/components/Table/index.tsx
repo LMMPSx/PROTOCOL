@@ -4,15 +4,35 @@ import { useEffect } from "react";
 import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css/dist/js/materialize.min.js';
 import M from 'materialize-css';
-import './styles.css'
+import './styles.css';
 
-export function Table() {
+interface TableProps {
+    selectedWorkout: string;
+    onExerciseClick: (video: string) => void; // Função para lidar com o clique no exercício
+}
+
+export function Table({ selectedWorkout, onExerciseClick }: TableProps) {
     useEffect(() => {
         M.AutoInit();
     }, []);
 
+    const data: Record<string, { name: string; video: string }[]> = {
+        A1: [
+            { name: "T bar row", video: "https://www.youtube.com/embed/59GM_xjPhco?si=qDCog5ICHm_9hwzH" },
+            { name: "Remada baixa com triângulo", video: "https://www.youtube.com/embed/video2" },
+            { name: "Supino inclinado smith", video: "https://www.youtube.com/embed/video3" },
+        ],
+        B1: [
+            { name: "RDL", video: "https://www.youtube.com/embed/video4" },
+            { name: "Cadeira flexora unilateral", video: "https://www.youtube.com/embed/video5" },
+        ],
+        // Adicione os outros treinos aqui...
+    };
+
+    const filteredData = selectedWorkout ? data[selectedWorkout] : [];
+
     return (
-        <div className="">
+        <div className="table-container">
             <table className="centered highlight black-text">
                 <thead>
                     <tr>
@@ -22,181 +42,29 @@ export function Table() {
                 </thead>
 
                 <tbody>
-
-                    <tr>
-                        <td
-                            rowSpan={8}
-                        >
-                            A1
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>T bar row</td>
-                    </tr>
-                    <tr>
-                        <td>Remada baixa com triângulo (pronada ou neutra)</td>
-                    </tr>
-                    <tr>
-                        <td>Supino inclinado smith (banco 30°)</td>
-                    </tr>
-                    <tr>
-                        <td>Supino reto máquina (polia)</td>
-                    </tr>
-                    <tr>
-                        <td>Desenvolvimento máquina (polia)</td>
-                    </tr>
-                    <tr>
-                        <td>Tríceps francês unilateral (polia)</td>
-                    </tr>
-                    <tr>
-                        <td>Tríceps polia alta (barra reta ou V)</td>
-                    </tr>
-
-                    <tr>
-                        <td
-                            rowSpan={7}
-                        >
-                            B1
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>RDL</td>
-                    </tr>
-                    <tr>
-                        <td>Cadeira flexora unilateral (máquina zerada)</td>
-                    </tr>
-                    <tr>
-                        <td>Leg press 45°</td>
-                    </tr>
-                    <tr>
-                        <td>Cadeira extensora</td>
-                    </tr>
-                    <tr>
-                        <td>Bíceps rosca polia baixa (barra reta)</td>
-                    </tr>
-                    <tr>
-                        <td>Bíceps rosca unilateral polia baixa (bayesian curl)</td>
-                    </tr>
-
-                    <tr>
-                        <td
-                            rowSpan={8}
-                        >
-                            A2
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Remada curvada com halteres (pronada)</td>
-                    </tr>
-                    <tr>
-                        <td>Puxada alta (pegada neutra ou triângulo)</td>
-                    </tr>
-                    <tr>
-                        <td>Supino inclinado máquina (polia)</td>
-                    </tr>
-                    <tr>
-                        <td>Supino reto máquina (polia)</td>
-                    </tr>
-                    <tr>
-                        <td>Tríceps polia alta (barra reta ou V)</td>
-                    </tr>
-                    <tr>
-                        <td>Tríceps francês unilateral (polia)</td>
-                    </tr>
-                    <tr>
-                        <td>Elevação unilateral (polia baixa pegador)</td>
-                    </tr>
-
-                    <tr>
-                        <td
-                            rowSpan={8}
-                        >
-                            B2
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Cadeira flexora</td>
-                    </tr>
-                    <tr>
-                        <td>Agachamento livre</td>
-                    </tr>
-                    <tr>
-                        <td>Cadeira extensora</td>
-                    </tr>
-                    <tr>
-                        <td>Elevação pélvica smith</td>
-                    </tr>
-                    <tr>
-                        <td>Mesa flexora</td>
-                    </tr>
-                    <tr>
-                        <td>Bíceps rosca polia baixa (barra reta)</td>
-                    </tr>
-                    <tr>
-                        <td>Bíceps rosca unilateral polia baixa (bayesian curl)</td>
-                    </tr>
-
-                    <tr>
-                        <td
-                            rowSpan={8}
-                        >
-                            A3
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>Remada polia baixa unilateral (neutra)</td>
-                    </tr>
-                    <tr>
-                        <td>T bar row máquina</td>
-                    </tr>
-                    <tr>
-                        <td>Supino inclinado smith (banco 30°)</td>
-                    </tr>
-                    <tr>
-                        <td>Supino reto máquina convergente</td>
-                    </tr>
-                    <tr>
-                        <td>Desenvolvimento com halteres (banco 75°)</td>
-                    </tr>
-                    <tr>
-                        <td>Tríceps polia alta (barra reta ou V)</td>
-                    </tr>
-                    <tr>
-                        <td>Tríceps cruzado polia (unilateral)</td>
-                    </tr>
-
-                    <tr>
-                        <td
-                            rowSpan={8}
-                        >
-                            B3
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>Cadeira flexora</td>
-                    </tr>
-                    <tr>
-                        <td>Leg press 45°</td>
-                    </tr>
-                    <tr>
-                        <td>Sumo deadlift</td>
-                    </tr>
-                    <tr>
-                        <td>Cadeira extensora</td>
-                    </tr>
-                    <tr>
-                        <td>Bíceps rosca polia baixa (barra reta)</td>
-                    </tr>
-                    <tr>
-                        <td>Bíceps rosca martelo halteres (simultâneo)</td>
-                    </tr>
-                    <tr>
-                        <td>Elevação lateral com halter sentado (banco 90°)</td>
-                    </tr>
+                    {filteredData.length > 0 ? (
+                        filteredData.map((exercise, index) => (
+                            <tr key={index}>
+                                {index === 0 && (
+                                    <td rowSpan={filteredData.length} className="workout-index">
+                                        {selectedWorkout}
+                                    </td>
+                                )}
+                                <td
+                                    onClick={() => onExerciseClick(exercise.video)} // Chama a função ao clicar
+                                    style={{ cursor: "pointer", color: "blue" }} // Estilo para indicar que é clicável
+                                >
+                                    {exercise.name}
+                                </td>
+                            </tr>
+                        ))
+                    ) : (
+                        <tr>
+                            <td colSpan={2}>Selecione um treino para ver os exercícios.</td>
+                        </tr>
+                    )}
                 </tbody>
             </table>
         </div>
-    )
+    );
 }

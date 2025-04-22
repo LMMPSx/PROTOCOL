@@ -1,9 +1,5 @@
-table.highlight tbody tr:hover {
-    background-color: #9e9e9e !important; 
-    transition: background-color 0.3s ease; 
-}
 .table-container {
-    max-height: auto;
+    height: auto;
     overflow-y: auto;
 }
 
@@ -23,16 +19,24 @@ table th {
 
 table td {
     text-align: center !important; /* Centraliza o texto */
-    padding: 8px !important; /* Adiciona espaçamento interno */
+    padding: 32px !important; /* Adiciona espaçamento interno */
     border-bottom: 1px solid #757575 !important; /* Adiciona borda inferior */
 }
 
+/* Aplica o efeito de hover apenas às células que não possuem o atributo rowspan */
+table.highlight tbody tr:hover td:not([rowspan]) {
+    background-color: #9e9e9e !important; /* Cor de fundo no hover */
+    transition: background-color 0.3s ease; /* Transição suave */
+}
+
+/* Remove o efeito de hover da célula do treino */
 table td[rowspan] {
     background-color: inherit !important; /* Mantém o fundo original */
     pointer-events: none !important; /* Remove interações */
-    border-right: 1px solid #757575 !important; /* Adiciona borda direita */
+    transition: none !important; /* Remove transições */
+    border-right: 1px solid #757575 !important; /* Borda direita */
 }
 
 table tr:last-child td {
-    border-bottom: none !important; /* Remove a borda inferior da última linha */
+    border-bottom: 1px solid #757575 !important; /* Remove a borda inferior da última linha */
 }
