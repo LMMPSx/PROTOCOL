@@ -1,0 +1,21 @@
+div.row {
+    margin: 0;
+}
+
+div.col.s3.grey.darken-4.white-text {
+    position: fixed; /* Torna a div fixa na tela */
+    top: 0; /* Alinha ao topo */
+    left: 0; /* Alinha à esquerda */
+    height: 100vh; /* Faz a div ocupar toda a altura da tela */
+    width: 25%; /* Define a largura da div (ajuste conforme necessário) */
+    z-index: 1000; /* Garante que a div fique acima de outros elementos */
+    overflow-y: auto; /* Adiciona rolagem vertical se o conteúdo for maior que a altura */
+    background-color: #212121; /* Cor de fundo (ajuste conforme necessário) */
+    color: white; /* Cor do texto */
+    padding: 20px; /* Espaçamento interno */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5); /* Adiciona uma sombra para destacar */
+}
+
+div.col.s9.grey.lighten-3.white-text {
+    margin-left: 25%; /* Desloca o conteúdo principal para a direita */
+}

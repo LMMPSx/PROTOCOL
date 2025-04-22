@@ -1,0 +1,38 @@
+table.highlight tbody tr:hover {
+    background-color: #9e9e9e !important; 
+    transition: background-color 0.3s ease; 
+}
+.table-container {
+    max-height: auto;
+    overflow-y: auto;
+}
+
+table {
+    width: 100% !important; /* Garante que a largura seja aplicada */
+    border-collapse: collapse !important; /* Remove espaçamento entre bordas */
+}
+
+table thead tr {
+    border-bottom: 1px solid #757575 !important; /* Borda inferior no cabeçalho */
+}
+
+table th {
+    text-align: center !important; /* Centraliza o texto */
+    font-weight: bold !important; /* Deixa o texto em negrito */
+}
+
+table td {
+    text-align: center !important; /* Centraliza o texto */
+    padding: 8px !important; /* Adiciona espaçamento interno */
+    border-bottom: 1px solid #757575 !important; /* Adiciona borda inferior */
+}
+
+table td[rowspan] {
+    background-color: inherit !important; /* Mantém o fundo original */
+    pointer-events: none !important; /* Remove interações */
+    border-right: 1px solid #757575 !important; /* Adiciona borda direita */
+}
+
+table tr:last-child td {
+    border-bottom: none !important; /* Remove a borda inferior da última linha */
+}

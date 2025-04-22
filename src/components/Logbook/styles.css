@@ -1,0 +1,108 @@
+.text-form {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #000;
+}
+
+#logbook {
+    padding: 25px;
+    margin-top: "20px";
+    max-height: "100vh";
+}
+
+.select-wrapper input.select-dropdown {
+    background-color: #212121  !important; /* Cor de fundo */
+    color: white !important; /* Cor do texto */
+    border: 1px solid #616161 !important; /* Borda */
+    border-radius: 4px !important; /* Bordas arredondadas */
+    padding: 10px !important; /* Espaçamento interno */
+    font-size: 16px !important; /* Tamanho da fonte */
+}
+
+/* Estilo para o dropdown no foco */
+.select-wrapper input.select-dropdown:focus {
+    border: 1px solid #d50000 !important; /* Borda vermelha no foco */
+    box-shadow: 0 0 5px #d50000 !important; /* Efeito de brilho no foco */
+    outline: none !important; /* Remove o contorno padrão */
+}
+
+.select-wrapper input.select-dropdown {
+    background-color: #212121  !important; /* Cor de fundo */
+    color: white !important; /* Cor do texto */
+    border: 1px solid #616161 !important; /* Borda */
+    border-radius: 4px !important; /* Bordas arredondadas */
+    padding: 10px !important; /* Espaçamento interno */
+    font-size: 16px !important; /* Tamanho da fonte */
+}
+
+/* Estilo para o dropdown no foco */
+.select-wrapper input.select-dropdown:focus {
+    border: 1px solid #d50000 !important; /* Borda vermelha no foco */
+    box-shadow: 0 0 5px #d50000 !important; /* Efeito de brilho no foco */
+    outline: none !important; /* Remove o contorno padrão */
+}
+
+/* Estilo para o conteúdo do dropdown */
+ul.dropdown-content {
+    background-color: #212121 !important; /* Cor de fundo */
+    color: white !important; /* Cor do texto */
+    border: 1px solid #616161 !important; /* Borda */
+    border-radius: 4px !important; /* Bordas arredondadas */
+    font-size: 16px !important; /* Tamanho da fonte */
+    padding: 0 !important; /* Remove espaçamento interno */
+}
+
+/* Estilo para as opções individuais */
+ul.dropdown-content li > a, ul.dropdown-content li > span {
+    color: white !important; /* Cor do texto */
+    padding: 10px 15px !important; /* Espaçamento interno */
+    font-size: 16px !important; /* Tamanho da fonte */
+}
+
+/* Estilo para a opção no hover */
+ul.dropdown-content li:hover {
+    background-color: #616161 !important; /* Cor de fundo no hover */
+}
+
+/* Estilo para a opção selecionada */
+ul.dropdown-content li.active {
+    background-color: #d50000 !important; /* Cor de fundo para a opção ativa */
+    color: white !important; /* Cor do texto para a opção ativa */
+}
+
+
+input.grey.darken-4.white-text {
+    border: 1px solid #616161;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+input.grey.darken-4.white-text:focus {
+    border-bottom: 1px solid #d50000;
+    box-shadow: 0 1px 0 0 #d50000;
+}
+
+input.grey.darken-4.white-text::placeholder {
+    font-style: italic;
+}
+
+button {
+    margin-top: 50px;
+}
+
+/* Remove as setas dos inputs do tipo number */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none; /* Remove a aparência padrão */
+    margin: 0; /* Remove margens */
+}
+
+/* Para navegadores que não usam WebKit */
+input[type="number"] {
+    -moz-appearance: textfield; /* Remove as setas no Firefox */
+}
+
+/* Estilo personalizado para as setas (se necessário) */
+input[type="number"] {
+    padding-right: 10px; /* Ajusta o espaçamento interno */
+}
