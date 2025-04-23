@@ -103,7 +103,7 @@ export function Table({ selectedWorkout, onExerciseClick }: TableProps) {
                         ))
                     ) : (
                         <tr>
-                            <td colSpan={2}>Selecione um treino para ver os exercícios.</td>
+
                         </tr>
                     )}
                 </tbody>
