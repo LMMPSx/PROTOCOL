@@ -104,7 +104,7 @@ export function Logbook() {
                 </div>
 
                 <div className="center-align">
-                    <button className="large btn waves-effect waves-light red accent-4" type="submit" name="action">Salvar
+                    <button className="large btn waves-effect waves-light blue-grey darken-4" type="submit" name="action">Salvar
                         <i className="material-icons right">send</i>
                     </button>
                 </div>
