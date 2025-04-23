@@ -76,7 +76,7 @@ export function Table({ selectedWorkout, onExerciseClick }: TableProps) {
 
     return (
         <div className="table-container">
-            <table className="centered highlight black-text">
+            <table className="centered white-text">
                 <thead>
                     <tr>
                         <th>Exercício</th>
@@ -117,7 +117,7 @@ export function Table({ selectedWorkout, onExerciseClick }: TableProps) {
                         ))
                     ) : (
                         <tr>
-                            <td colSpan={3}>Nenhum exercício encontrado</td>
+                            <td colSpan={4}>Nenhum exercício encontrado</td>
                         </tr>
                     )}
                     </tbody>

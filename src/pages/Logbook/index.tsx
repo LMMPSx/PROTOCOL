@@ -20,11 +20,11 @@ export function LogBook() {
 
             <div className="row">
 
-                <div className="col s3 grey darken-4 white-text">
+                <div className="col s3 blue-grey darken-2 white-text">
                     <Logbook />
                 </div>
 
-                <div className="col s9 grey lighten-3 white-text">
+                <div className="col s9 grey darken-2 white-text">
 
                 </div>
 

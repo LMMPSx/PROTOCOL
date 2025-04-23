@@ -29,13 +29,13 @@ export function Workout() {
 
             <div className="row">
 
-                <div className="col s3 grey darken-4 white-text">
+                <div className="col s3 blue-grey darken-2 white-text">
                     <p>Selecione um treino para ver os exercícios.</p>
                     <p>Clique em um dos exercícios da tabela para abrir um vídeo nesta área mostrando a execução.</p>
                     <iframe src={videoUrl} width="100%" height="700" title="Exercício"></iframe>
                 </div>
 
-                <div className="col s9 grey lighten-3 white-text">
+                <div className="col s9 grey darken-2 white-text">
                     <div className="container input-field">
                         <select value={selectedWorkout} onChange={handleSelectChange}>
                             <option value="" disabled>Selecione um treino</option>

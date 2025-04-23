@@ -11,9 +11,9 @@
 }
 
 .select-wrapper input.select-dropdown {
-    background-color: #212121  !important; /* Cor de fundo */
+    background-color: #455a64  !important; /* Cor de fundo */
     color: white !important; /* Cor do texto */
-    border: 1px solid #616161 !important; /* Borda */
+    border: 1px solid #fff !important; /* Borda */
     border-radius: 4px !important; /* Bordas arredondadas */
     padding: 10px !important; /* Espaçamento interno */
     font-size: 16px !important; /* Tamanho da fonte */
@@ -21,15 +21,15 @@
 
 /* Estilo para o dropdown no foco */
 .select-wrapper input.select-dropdown:focus {
-    border: 1px solid #d50000 !important; /* Borda vermelha no foco */
-    box-shadow: 0 0 5px #d50000 !important; /* Efeito de brilho no foco */
+    border: 2px solid #ffffff !important; /* Borda vermelha no foco */
+    box-shadow: 0 0 5px #ffffff !important; /* Efeito de brilho no foco */
     outline: none !important; /* Remove o contorno padrão */
 }
 
 .select-wrapper input.select-dropdown {
-    background-color: #212121  !important; /* Cor de fundo */
+    background-color: #455a64 !important; /* Cor de fundo */
     color: white !important; /* Cor do texto */
-    border: 1px solid #616161 !important; /* Borda */
+    border: 2px solid #263238 !important; /* Borda */
     border-radius: 4px !important; /* Bordas arredondadas */
     padding: 10px !important; /* Espaçamento interno */
     font-size: 16px !important; /* Tamanho da fonte */
@@ -37,16 +37,16 @@
 
 /* Estilo para o dropdown no foco */
 .select-wrapper input.select-dropdown:focus {
-    border: 1px solid #d50000 !important; /* Borda vermelha no foco */
-    box-shadow: 0 0 5px #d50000 !important; /* Efeito de brilho no foco */
+    border: 2px solid #ffffff !important; /* Borda vermelha no foco */
+    box-shadow: 0 0 5px #ffffff !important; /* Efeito de brilho no foco */
     outline: none !important; /* Remove o contorno padrão */
 }
 
 /* Estilo para o conteúdo do dropdown */
 ul.dropdown-content {
-    background-color: #212121 !important; /* Cor de fundo */
+    background-color: #455a64 !important; /* Cor de fundo */
     color: white !important; /* Cor do texto */
-    border: 1px solid #616161 !important; /* Borda */
+    border: 2px solid #fff !important; /* Borda */
     border-radius: 4px !important; /* Bordas arredondadas */
     font-size: 16px !important; /* Tamanho da fonte */
     padding: 0 !important; /* Remove espaçamento interno */
@@ -61,28 +61,28 @@ ul.dropdown-content li > a, ul.dropdown-content li > span {
 
 /* Estilo para a opção no hover */
 ul.dropdown-content li:hover {
-    background-color: #616161 !important; /* Cor de fundo no hover */
+    background-color: #546e7a !important; /* Cor de fundo no hover */
 }
 
 /* Estilo para a opção selecionada */
 ul.dropdown-content li.active {
-    background-color: #d50000 !important; /* Cor de fundo para a opção ativa */
+    background-color: #263238 !important; /* Cor de fundo para a opção ativa */
     color: white !important; /* Cor do texto para a opção ativa */
 }
 
 
-input.grey.darken-4.white-text {
-    border: 1px solid #616161;
+input.blue-grey.darken-2.white-text {
+    border: 2px solid #263238;
     border-radius: 4px;
     padding: 10px;
 }
 
-input.grey.darken-4.white-text:focus {
-    border-bottom: 1px solid #d50000;
-    box-shadow: 0 1px 0 0 #d50000;
+input.blue-grey.darken-2.white-text:focus {
+    border-bottom: 1px solid #fff;
+    box-shadow: 0 1px 0 0 #fff;
 }
 
-input.grey.darken-4.white-text::placeholder {
+input.blue-grey.darken-2.white-text::placeholder {
     font-style: italic;
 }
 

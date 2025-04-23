@@ -2,7 +2,7 @@ div.row {
     margin: 0;
 }
 
-div.col.s3.grey.darken-4.white-text {
+div.col.s3.blue-grey.darken-2.white-text {
     position: fixed; /* Torna a div fixa na tela */
     top: 0; /* Alinha ao topo */
     left: 0; /* Alinha à esquerda */
@@ -16,7 +16,7 @@ div.col.s3.grey.darken-4.white-text {
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5); /* Adiciona uma sombra para destacar */
 }
 
-div.col.s9.grey.lighten-3.white-text {
+div.col.s9.grey.darken-2.white-text {
     margin-left: 25%; /* Desloca o conteúdo principal para a direita */
     
 }

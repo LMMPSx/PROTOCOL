@@ -24,17 +24,9 @@ table td {
 }
 
 /* Aplica o efeito de hover apenas às células que não possuem o atributo rowspan */
-table.highlight tbody tr:hover td:not([rowspan]) {
-    background-color: #9e9e9e !important; /* Cor de fundo no hover */
-    transition: background-color 0.3s ease; /* Transição suave */
-}
-
-/* Remove o efeito de hover da célula do treino */
-table td[rowspan] {
-    background-color: inherit !important; /* Mantém o fundo original */
-    pointer-events: none !important; /* Remove interações */
-    transition: none !important; /* Remove transições */
-    border-right: 1px solid #757575 !important; /* Borda direita */
+table tbody tr:hover td:not([rowspan]) {
+    background-color: #757575 !important; /* Cor de fundo no hover */
+    transition: 0.3s ease !important; /* Transição suave */
 }
 
 table tr:last-child td {

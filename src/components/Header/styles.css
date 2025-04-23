@@ -1,8 +1,8 @@
-div.nav-wrapper.red.accent-4 {
+div.nav-wrapper.blue-grey.darken-4 {
     margin-left: 25%;
 }
 
-div.nav-wrapper.red.accent-4 li a:hover {
-    background-color: #212121 !important; 
+div.nav-wrapper.blue-grey.darken-4 li a:hover {
+    background-color: #37474f !important; 
     transition: background-color 0.3s ease; 
 }

@@ -13,7 +13,7 @@ export function Header() {
 
     return (
         <nav>
-            <div className="nav-wrapper red accent-4">
+            <div className="nav-wrapper blue-grey darken-4">
                 <a href="#" className="brand-logo center">Logo</a>
                 <ul className="right hide-on-med-and-down">
                     <li><a href="/">Home</a></li>
