@@ -95,6 +95,12 @@ export function Form() {
         setSeriesInputs(updatedInputs);
     }
 
+    const handleLoadChange = (exerciseIndex: number, seriesIndex: number, value: number) => {
+        const updatedInputs = { ...seriesInputs };
+        updatedInputs[exerciseIndex][seriesIndex] = value;
+        setSeriesInputs(updatedInputs);
+    };
+
     return (
         <form action="">
             <div className="container center-align">
@@ -156,7 +162,7 @@ export function Form() {
                                     placeholder={`Carga de trabalho ${seriesIndex + 1}° série`}
                                     required
                                     onChange={(e) =>
-                                        handleRepetitionChange(
+                                        handleLoadChange(
                                             exerciseIndex,
                                             seriesIndex,
                                             parseInt(e.target.value) || 0
