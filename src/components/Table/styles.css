@@ -9,7 +9,7 @@ table {
 }
 
 table thead tr {
-    border-bottom: 1px solid #757575 !important; /* Borda inferior no cabeçalho */
+    border-bottom: 1px solid #212121 !important; /* Borda inferior no cabeçalho */
 }
 
 table th {
@@ -20,7 +20,7 @@ table th {
 table td {
     text-align: center !important; /* Centraliza o texto */
     padding: 32px !important; /* Adiciona espaçamento interno */
-    border-bottom: 1px solid #757575 !important; /* Adiciona borda inferior */
+    border-bottom: 1px solid #212121 !important; /* Adiciona borda inferior */
 }
 
 /* Aplica o efeito de hover apenas às células que não possuem o atributo rowspan */
@@ -30,5 +30,5 @@ table tbody tr:hover td:not([rowspan]) {
 }
 
 table tr:last-child td {
-    border-bottom: 1px solid #757575 !important; /* Remove a borda inferior da última linha */
+    border-bottom: 1px solid #212121 !important; /* Remove a borda inferior da última linha */
 }
