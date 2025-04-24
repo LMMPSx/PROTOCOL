@@ -12,6 +12,7 @@ export function Form() {
     }, []);
 
     const [selectedTreino, setSelectedTreino] = useState("A1");
+    const [seriesInputs, setSeriesInputs] = useState<Record<number, number[]>>({});
 
     const treinoOptions: Record<string, string[]> = {
         A1: [
@@ -71,43 +72,110 @@ export function Form() {
 
     const exercises = treinoOptions[selectedTreino] || [];
 
+    const handleSeriesChange = (exerciseIndex: number, seriesCount: number) => {
+        const maxSeries = 10;
+        if (seriesCount > maxSeries) {
+            seriesCount = maxSeries;
+        }
+
+        const updatedInputs = { ...seriesInputs };
+        updatedInputs[exerciseIndex] = Array.from({ length: seriesCount }, () => 0);
+        setSeriesInputs(updatedInputs);
+    }
+
+    const handleRepetitionChange = (exerciseIndex: number, seriesIndex: number, value: number) => {
+        const maxReps = 20;
+        if (value > maxReps) {
+            window.alert("Usuário, pare de treinar fofo.");
+            value = maxReps; 
+        }
+        
+        const updatedInputs = { ...seriesInputs };
+        updatedInputs[exerciseIndex][seriesIndex] = value;
+        setSeriesInputs(updatedInputs);
+    }
+
     return (
-            <form action="">
-                <div className="container center-align">
-                    <p className="text-form white-text">Treino</p>
-                    <select
-                        required
-                        defaultValue=""
-                        className="grey darken-3 white-text"
-                        onChange={(e) => setSelectedTreino(e.target.value)}>
-                        <option value="" disabled>Escolha o treino</option>
-                        <option value="A1">A1</option>
-                        <option value="B1">B1</option>
-                        <option value="A2">A2</option>
-                        <option value="B2">B2</option>
-                        <option value="A3">A3</option>
-                        <option value="B3">B3</option>
-                    </select>
-                </div>
+        <form action="">
+            <div className="container center-align">
+                <p className="text-form white-text">Treino</p>
+                <select
+                    required
+                    defaultValue=""
+                    className="grey darken-3 white-text"
+                    onChange={(e) => setSelectedTreino(e.target.value)}>
+                    <option value="" disabled>Escolha o treino</option>
+                    <option value="A1">A1</option>
+                    <option value="B1">B1</option>
+                    <option value="A2">A2</option>
+                    <option value="B2">B2</option>
+                    <option value="A3">A3</option>
+                    <option value="B3">B3</option>
+                </select>
+            </div>
 
-                <div className="container">
-                    <div className="center-align">
-                        <p className="text-form white-text">Exercícios</p>
-                    </div>
-                    {exercises.map((exercise, index) => (
-                        <div>
-                            <p className="text-form white-text" key={index} >{exercise}</p>
-                            <input type="number" className="grey darken-3 white-text" placeholder="Repetições" required/>
-                            <input type="number" className="grey darken-3 white-text" placeholder="Carga de Trabalho" required/>
-                        </div>
-                    ))}
-                </div>
-
+            <div className="container">
                 <div className="center-align">
-                    <button className="large btn waves-effect waves-light grey darken-4" type="submit" name="action">Salvar
-                        <i className="material-icons right">send</i>
-                    </button>
+                    <p className="text-form white-text">Exercícios</p>
                 </div>
-            </form>
+                {exercises.map((exercise, exerciseIndex) => (
+                    <div key={exerciseIndex}>
+                        <p className="text-form white-text">{exercise}</p>
+                        <input
+                            type="number"
+                            className="grey darken-3 white-text"
+                            placeholder="Séries"
+                            max={10}
+                            required
+                            onChange={(e) => handleSeriesChange(exerciseIndex, parseInt(e.target.value) || 0)}
+                        />
+                        {seriesInputs[exerciseIndex]?.map((_, seriesIndex) => (
+                            <>
+                                <input
+                                    key={seriesIndex}
+                                    type="number"
+                                    className="reps grey darken-3 white-text"
+                                    placeholder={`Repetições ${seriesIndex + 1}° série`}
+                                    max={20}
+                                    required
+                                    onChange={(e) =>
+                                        handleRepetitionChange(
+                                            exerciseIndex,
+                                            seriesIndex,
+                                            parseInt(e.target.value) || 0
+                                        )
+                                    }
+
+                                >
+                                </input>
+
+                                <input
+                                    key={seriesIndex}
+                                    type="number"
+                                    className="carga grey darken-3 white-text"
+                                    placeholder={`Carga de trabalho ${seriesIndex + 1}° série`}
+                                    required
+                                    onChange={(e) =>
+                                        handleRepetitionChange(
+                                            exerciseIndex,
+                                            seriesIndex,
+                                            parseInt(e.target.value) || 0
+                                        )
+                                    }
+
+                                >
+                                </input>
+                            </>
+                        ))}
+                    </div>
+                ))}
+            </div>
+
+            <div className="center-align">
+                <button className="large btn waves-effect waves-light grey darken-4" type="submit" name="action">Salvar
+                    <i className="material-icons right">send</i>
+                </button>
+            </div>
+        </form>
     )
 }

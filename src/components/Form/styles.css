@@ -6,8 +6,8 @@
 
 #logbook {
     padding: 25px;
-    margin-top: "20px";
-    max-height: "100vh";
+    margin-top: 20px;
+    max-height: 100vh;
 }
 
 .select-wrapper input.select-dropdown {
@@ -29,7 +29,7 @@
 .select-wrapper input.select-dropdown {
     background-color: #424242 !important; /* Cor de fundo */
     color: white !important; /* Cor do texto */
-    border: 2px solid #212121 !important; /* Borda */
+    border: 2px solid #fff !important; /* Borda */
     border-radius: 4px !important; /* Bordas arredondadas */
     padding: 10px !important; /* Espaçamento interno */
     font-size: 16px !important; /* Tamanho da fonte */
@@ -70,9 +70,7 @@ ul.dropdown-content li.active {
     color: white !important; /* Cor do texto para a opção ativa */
 }
 
-
 input.grey.darken-3.white-text {
-    border: 2px solid #212121;
     border-radius: 4px;
     padding: 10px;
 }
@@ -84,6 +82,12 @@ input.grey.darken-3.white-text:focus {
 
 input.grey.darken-3.white-text::placeholder {
     font-style: italic;
+}
+
+
+input.grey.darken-3.white-text:focus {
+    border-bottom: 1px solid #fff;
+    box-shadow: 0 1px 0 0 #fff;
 }
 
 button {
