@@ -29,9 +29,9 @@ export function Workout() {
 
             <div className="row">
 
-                <div className="col s3 blue-grey darken-2 white-text">
-                    <p>Selecione um treino para ver os exercícios.</p>
-                    <p>Clique em um dos exercícios da tabela para abrir um vídeo nesta área mostrando a execução.</p>
+                <div className="col s3 grey darken-3 white-text">
+                    <p className="text">Selecione um treino para ver os exercícios.</p>
+                    <p className="text">Clique em um dos exercícios da tabela para abrir um vídeo nesta área mostrando a execução.</p>
                     <iframe src={videoUrl} width="100%" height="700" title="Exercício"></iframe>
                 </div>
 

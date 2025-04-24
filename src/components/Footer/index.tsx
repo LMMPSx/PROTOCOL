@@ -12,7 +12,7 @@ export function Footer() {
     }, []);
 
     return (
-        <footer className="page-footer blue-grey darken-4">
+        <footer className="page-footer grey darken-4">
             <div className="container">
                 <div className="row">
                     <div className="col l6 s12">

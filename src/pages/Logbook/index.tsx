@@ -7,7 +7,7 @@ import M from 'materialize-css';
 import './styles.css'
 import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
-import { Logbook } from "../../components/Logbook";
+import { Form } from "../../components/Form";
 
 export function LogBook() {
     useEffect(() => {
@@ -20,8 +20,8 @@ export function LogBook() {
 
             <div className="row">
 
-                <div className="col s3 blue-grey darken-2 white-text">
-                    <Logbook />
+                <div className="col s3 grey darken-3 white-text">
+                    <Form />
                 </div>
 
                 <div className="col s9 grey darken-2 white-text">

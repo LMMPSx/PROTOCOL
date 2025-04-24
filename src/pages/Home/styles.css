@@ -2,7 +2,7 @@ div.row {
     margin: 0;
 }
 
-div.col.s3.blue-grey.darken-2.white-text {
+div.col.s3.grey.darken-3.white-text {
     position: fixed; /* Torna a div fixa na tela */
     top: 0; /* Alinha ao topo */
     left: 0; /* Alinha à esquerda */

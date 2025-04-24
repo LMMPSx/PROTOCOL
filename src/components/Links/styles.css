@@ -1,0 +1,10 @@
+a.link {
+    color: white;
+    font-size: 2rem;
+}
+
+div.separator {
+    border-bottom: 2px solid white;
+    padding: 10px;
+    margin-bottom: 10px;
+}

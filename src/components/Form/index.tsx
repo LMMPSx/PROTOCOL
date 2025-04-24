@@ -6,7 +6,7 @@ import 'materialize-css/dist/js/materialize.min.js';
 import M from 'materialize-css';
 import './styles.css'
 
-export function Logbook() {
+export function Form() {
     useEffect(() => {
         M.AutoInit();
     }, []);
@@ -78,7 +78,7 @@ export function Logbook() {
                     <select
                         required
                         defaultValue=""
-                        className="blue-grey darken-4 white-text"
+                        className="grey darken-3 white-text"
                         onChange={(e) => setSelectedTreino(e.target.value)}>
                         <option value="" disabled>Escolha o treino</option>
                         <option value="A1">A1</option>
@@ -97,14 +97,14 @@ export function Logbook() {
                     {exercises.map((exercise, index) => (
                         <div>
                             <p className="text-form white-text" key={index} >{exercise}</p>
-                            <input type="number" className="blue-grey darken-2 white-text" placeholder="Repetições" required/>
-                            <input type="number" className="blue-grey darken-2 white-text" placeholder="Carga de Trabalho" required/>
+                            <input type="number" className="grey darken-3 white-text" placeholder="Repetições" required/>
+                            <input type="number" className="grey darken-3 white-text" placeholder="Carga de Trabalho" required/>
                         </div>
                     ))}
                 </div>
 
                 <div className="center-align">
-                    <button className="large btn waves-effect waves-light blue-grey darken-4" type="submit" name="action">Salvar
+                    <button className="large btn waves-effect waves-light grey darken-4" type="submit" name="action">Salvar
                         <i className="material-icons right">send</i>
                     </button>
                 </div>

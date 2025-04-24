@@ -11,7 +11,7 @@
 }
 
 .select-wrapper input.select-dropdown {
-    background-color: #455a64  !important; /* Cor de fundo */
+    background-color: #424242  !important; /* Cor de fundo */
     color: white !important; /* Cor do texto */
     border: 1px solid #fff !important; /* Borda */
     border-radius: 4px !important; /* Bordas arredondadas */
@@ -27,9 +27,9 @@
 }
 
 .select-wrapper input.select-dropdown {
-    background-color: #455a64 !important; /* Cor de fundo */
+    background-color: #424242 !important; /* Cor de fundo */
     color: white !important; /* Cor do texto */
-    border: 2px solid #263238 !important; /* Borda */
+    border: 2px solid #212121 !important; /* Borda */
     border-radius: 4px !important; /* Bordas arredondadas */
     padding: 10px !important; /* Espaçamento interno */
     font-size: 16px !important; /* Tamanho da fonte */
@@ -44,7 +44,7 @@
 
 /* Estilo para o conteúdo do dropdown */
 ul.dropdown-content {
-    background-color: #455a64 !important; /* Cor de fundo */
+    background-color: #424242 !important; /* Cor de fundo */
     color: white !important; /* Cor do texto */
     border: 2px solid #fff !important; /* Borda */
     border-radius: 4px !important; /* Bordas arredondadas */
@@ -61,28 +61,28 @@ ul.dropdown-content li > a, ul.dropdown-content li > span {
 
 /* Estilo para a opção no hover */
 ul.dropdown-content li:hover {
-    background-color: #546e7a !important; /* Cor de fundo no hover */
+    background-color: #616161 !important; /* Cor de fundo no hover */
 }
 
 /* Estilo para a opção selecionada */
 ul.dropdown-content li.active {
-    background-color: #263238 !important; /* Cor de fundo para a opção ativa */
+    background-color: #212121 !important; /* Cor de fundo para a opção ativa */
     color: white !important; /* Cor do texto para a opção ativa */
 }
 
 
-input.blue-grey.darken-2.white-text {
-    border: 2px solid #263238;
+input.grey.darken-3.white-text {
+    border: 2px solid #212121;
     border-radius: 4px;
     padding: 10px;
 }
 
-input.blue-grey.darken-2.white-text:focus {
+input.grey.darken-3.white-text:focus {
     border-bottom: 1px solid #fff;
     box-shadow: 0 1px 0 0 #fff;
 }
 
-input.blue-grey.darken-2.white-text::placeholder {
+input.grey.darken-3.white-text::placeholder {
     font-style: italic;
 }
 
