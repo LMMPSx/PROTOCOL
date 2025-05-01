@@ -1,5 +1,9 @@
 import { useEffect } from "react";
 import { useFormContext } from "../../context/FormContext";
+import "materialize-css/dist/css/materialize.min.css";
+import "materialize-css/dist/js/materialize.min.js";
+import M from "materialize-css";
+import "./styles.css";
 
 export function History() {
     useEffect(() => {
@@ -34,9 +38,9 @@ export function History() {
             <div>
                 {Object.keys(groupedExercises).length > 0 ? (
                     Object.entries(groupedExercises).map(([treino, exercises]) => (
-                        <div key={treino}>
+                        <div className="history-table" key={treino}>
                             <h4 className="center-align">{treino}</h4> {/* Exibe o treino como título */}
-                            <table className="highlight centered">
+                            <table className="centered">
                                 <thead>
                                     <tr>
                                         <th>Exercício</th>
