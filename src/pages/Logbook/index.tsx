@@ -8,6 +8,8 @@ import './styles.css'
 import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
 import { Form } from "../../components/Form";
+import { History } from "../../components/History";
+import { FormProvider } from "../../context/FormContext";
 
 export function LogBook() {
     useEffect(() => {
@@ -15,7 +17,7 @@ export function LogBook() {
     }, []);
 
     return (
-        <>
+        <FormProvider>
             <Header />
 
             <div className="row">
@@ -25,12 +27,12 @@ export function LogBook() {
                 </div>
 
                 <div className="col s9 grey darken-2 white-text">
-
+                    <History />
                 </div>
 
             </div>
 
             <Footer />
-        </>
+        </FormProvider>
     )
 }

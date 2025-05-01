@@ -5,9 +5,9 @@ export function App() {
 
   return (
     <div className="App">
-      <BrowserRouter>
-        <Router />
-      </BrowserRouter>
+        <BrowserRouter>
+          <Router />
+        </BrowserRouter>
     </div>
   );
 }

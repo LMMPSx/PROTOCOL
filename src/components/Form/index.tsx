@@ -1,74 +1,17 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable react-hooks/rules-of-hooks */
+import { useFormContext } from "../../context/FormContext";
 import { useEffect, useState } from "react";
-import 'materialize-css/dist/css/materialize.min.css';
-import 'materialize-css/dist/js/materialize.min.js';
-import M from 'materialize-css';
-import './styles.css'
+import M from "materialize-css";
+import "./styles.css";
 
 export function Form() {
     useEffect(() => {
         M.AutoInit();
     }, []);
 
-    const [selectedTreino, setSelectedTreino] = useState("A1");
-    const [seriesInputs, setSeriesInputs] = useState<Record<number, number[]>>({});
-
-    const treinoOptions: Record<string, string[]> = {
-        A1: [
-            "T bar row",
-            "Remada baixa com triângulo (pronada ou neutra)",
-            "Supino inclinado smith (banco 30°)",
-            "Supino reto máquina (polia)",
-            "Desenvolvimento máquina (polia)",
-            "Tríceps francês unilateral (polia)",
-            "Tríceps polia alta (barra reta ou V)"
-        ],
-        B1: [
-            "RDL",
-            "Cadeira flexora unilateral (máquina zerada)",
-            "Leg press 45°",
-            "Cadeira extensora",
-            "Bíceps rosca polia baixa (barra reta)",
-            "Bíceps rosca unilateral polia baixa (bayesian curl)"
-        ],
-        A2: [
-            "Remada curvada com halteres (pronada)",
-            "Puxada alta (pegada neutra ou triângulo)",
-            "Supino inclinado máquina (polia)",
-            "Supino reto máquina (polia)",
-            "Tríceps polia alta (barra reta ou V)",
-            "Tríceps francês unilateral (polia)",
-            "Elevação unilateral (polia baixa pegador)"
-        ],
-        B2: [
-            "Cadeira flexora",
-            "Agachamento livre",
-            "Cadeira extensora",
-            "Elevação pélvica smith",
-            "Mesa flexora",
-            "Bíceps rosca polia baixa (barra reta)",
-            "Bíceps rosca unilateral polia baixa (bayesian curl)"
-        ],
-        A3: [
-            "Remada polia baixa unilateral (neutra)",
-            "T bar row máquina",
-            "Supino inclinado smith (banco 30°)",
-            "Supino reto máquina convergente",
-            "Desenvolvimento com halteres (banco 75°)",
-            "Tríceps polia alta (barra reta ou V)",
-            "Tríceps cruzado polia (unilateral)"
-        ],
-        B3: [
-            "Cadeira flexora",
-            "Leg press 45°",
-            "Sumo deadlift",
-            "Cadeira extensora",
-            "Bíceps rosca polia baixa (barra reta)",
-            "Bíceps rosca martelo halteres (simultâneo)",
-            "Elevação lateral com halter sentado (banco 90°)"
-        ]
-    };
+    const { formData, setFormData, treinoOptions } = useFormContext();
+    const [selectedTreino, setSelectedTreino] = useState("");
+    const [repsInputs, setRepsInputs] = useState<Record<number, number[]>>({});
+    const [loadsInputs, setLoadsInputs] = useState<Record<number, number[]>>({});
 
     const exercises = treinoOptions[selectedTreino] || [];
 
@@ -78,45 +21,92 @@ export function Form() {
             seriesCount = maxSeries;
         }
 
-        const updatedInputs = { ...seriesInputs };
-        updatedInputs[exerciseIndex] = Array.from({ length: seriesCount }, () => 0);
-        setSeriesInputs(updatedInputs);
-    }
+        const updatedReps = { ...repsInputs };
+        const updatedLoads = { ...loadsInputs };
+
+        updatedReps[exerciseIndex] = Array.from({ length: seriesCount }, () => 0);
+        updatedLoads[exerciseIndex] = Array.from({ length: seriesCount }, () => 0);
+
+        setRepsInputs(updatedReps);
+        setLoadsInputs(updatedLoads);
+    };
 
     const handleRepetitionChange = (exerciseIndex: number, seriesIndex: number, value: number) => {
-        const maxReps = 20;
-        if (value > maxReps) {
-            window.alert("Usuário, pare de treinar fofo.");
-            value = maxReps; 
+        const updatedReps = { ...repsInputs };
+        if (!updatedReps[exerciseIndex]) {
+            updatedReps[exerciseIndex] = [];
         }
-        
-        const updatedInputs = { ...seriesInputs };
-        updatedInputs[exerciseIndex][seriesIndex] = value;
-        setSeriesInputs(updatedInputs);
-    }
+        updatedReps[exerciseIndex][seriesIndex] = value;
+        setRepsInputs(updatedReps);
+    };
 
     const handleLoadChange = (exerciseIndex: number, seriesIndex: number, value: number) => {
-        const updatedInputs = { ...seriesInputs };
-        updatedInputs[exerciseIndex][seriesIndex] = value;
-        setSeriesInputs(updatedInputs);
+        const updatedLoads = { ...loadsInputs };
+        if (!updatedLoads[exerciseIndex]) {
+            updatedLoads[exerciseIndex] = [];
+        }
+        updatedLoads[exerciseIndex][seriesIndex] = value;
+        setLoadsInputs(updatedLoads);
+    };
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+    
+        if (!selectedTreino) {
+            M.toast({ html: "Por favor, selecione um treino.", classes: "red darken-1" });
+            return;
+        }
+    
+        const formattedExercises = Object.keys(repsInputs).reduce((acc, exerciseIndex) => {
+            const numericIndex = parseInt(exerciseIndex, 10); // Converte o índice para número
+            const uniqueIndex = `${selectedTreino}-${numericIndex}-${Date.now()}`; // Índice único
+            acc[uniqueIndex] = {
+                series: repsInputs[numericIndex].length,
+                reps: repsInputs[numericIndex],
+                loads: loadsInputs[numericIndex] || [],
+                date: new Date().toLocaleDateString(), // Adiciona a data atual
+            };
+            return acc;
+        }, {} as Record<string, { series: number; reps: number[]; loads: number[]; date: string }>);
+    
+        // Combine os novos exercícios com os existentes
+        const updatedExercises = {
+            ...formData.exercises, // Exercícios existentes
+            ...formattedExercises, // Novos exercícios
+        };
+    
+        setFormData({
+            ...formData,
+            treino: selectedTreino,
+            exercises: updatedExercises,
+        });
+    
+        M.toast({ html: "Dados enviados para o histórico!", classes: "green darken-1" });
+    
+        // Limpa os inputs
+        setRepsInputs({});
+        setLoadsInputs({});
+        setSelectedTreino("");
     };
 
     return (
-        <form action="">
+        <form onSubmit={handleSubmit}>
             <div className="container center-align">
                 <p className="text-form white-text">Treino</p>
                 <select
                     required
-                    defaultValue=""
+                    value={selectedTreino}
                     className="grey darken-3 white-text"
-                    onChange={(e) => setSelectedTreino(e.target.value)}>
-                    <option value="" disabled>Escolha o treino</option>
-                    <option value="A1">A1</option>
-                    <option value="B1">B1</option>
-                    <option value="A2">A2</option>
-                    <option value="B2">B2</option>
-                    <option value="A3">A3</option>
-                    <option value="B3">B3</option>
+                    onChange={(e) => setSelectedTreino(e.target.value)}
+                >
+                    <option value="" disabled>
+                        Escolha o treino
+                    </option>
+                    {Object.keys(treinoOptions).map((treino) => (
+                        <option key={treino} value={treino}>
+                            {treino}
+                        </option>
+                    ))}
                 </select>
             </div>
 
@@ -133,12 +123,14 @@ export function Form() {
                             placeholder="Séries"
                             max={10}
                             required
-                            onChange={(e) => handleSeriesChange(exerciseIndex, parseInt(e.target.value) || 0)}
+                            onChange={(e) =>
+                                handleSeriesChange(exerciseIndex, parseInt(e.target.value) || 0)
+                            }
                         />
-                        {seriesInputs[exerciseIndex]?.map((_, seriesIndex) => (
-                            <>
+                        {repsInputs[exerciseIndex]?.map((_, seriesIndex) => (
+                            <div key={`series-${seriesIndex}`}>
                                 <input
-                                    key={seriesIndex}
+                                    key={`reps-${seriesIndex}`}
                                     type="number"
                                     className="reps grey darken-3 white-text"
                                     placeholder={`Repetições ${seriesIndex + 1}° série`}
@@ -151,12 +143,9 @@ export function Form() {
                                             parseInt(e.target.value) || 0
                                         )
                                     }
-
-                                >
-                                </input>
-
+                                />
                                 <input
-                                    key={seriesIndex}
+                                    key={`loads-${seriesIndex}`}
                                     type="number"
                                     className="carga grey darken-3 white-text"
                                     placeholder={`Carga de trabalho ${seriesIndex + 1}° série`}
@@ -168,20 +157,23 @@ export function Form() {
                                             parseInt(e.target.value) || 0
                                         )
                                     }
-
-                                >
-                                </input>
-                            </>
+                                />
+                            </div>
                         ))}
                     </div>
                 ))}
             </div>
 
             <div className="center-align">
-                <button className="large btn waves-effect waves-light grey darken-4" type="submit" name="action">Salvar
+                <button
+                    className="btn-large waves-effect waves-light grey darken-4"
+                    type="submit"
+                    name="action"
+                >
+                    Salvar
                     <i className="material-icons right">send</i>
                 </button>
             </div>
         </form>
-    )
+    );
 }
